@@ -1,14 +1,16 @@
 package com.API.RESTful.core.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.validation.Errors;
 
 import java.util.List;
 
 public class AbstractService<T> implements IService<T> {
     @Autowired
-    protected JpaRepository<T, Long> repository;
+//    protected JpaRepository<T, Long> repository;
+    protected MongoRepository<T, Long> repository;
 
     public T findById(long id) {
         return repository.findById(id).get();
